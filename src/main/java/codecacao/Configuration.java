@@ -1,5 +1,6 @@
 package codecacao;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -32,7 +33,8 @@ public enum Configuration {
 		InputStream input = null;
 
 		try {
-			prop.load(getClass().getClassLoader().getResourceAsStream(configFileName));
+//			prop.load(getClass().getClassLoader().getResourceAsStream(configFileName));
+			prop.load(new FileInputStream(configFileName));
 			dbHost = prop.getProperty("dbHost");
 			dbUser = prop.getProperty("dbUser");
 			dbPassword = prop.getProperty("dbPassword");
